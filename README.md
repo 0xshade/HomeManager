@@ -2,6 +2,8 @@
 
 A minimal, terminal-focused, Nix Home Manager setup.
 
+<img width="1488" height="931" alt="image" src="https://github.com/user-attachments/assets/72e3f869-a1a9-45e8-ae1a-dfb35289d8ff" />
+
 ## Customization
 
 1. **Packages**: Add/remove packages in `home.nix`. Package configurations are in `modules/package.nix`.
