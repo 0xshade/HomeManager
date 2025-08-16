@@ -19,10 +19,8 @@
   home.packages = with pkgs; [
     # Your essential tools
     # (config.lib.nixGL.wrap pkgs.alacritty)
-    zellij
     zoxide
     eza
-    
     # Fonts
     (pkgs.nerd-fonts.mononoki)
   ];
@@ -37,6 +35,7 @@
     ./modules/alacritty.nix
     ./modules/zellij.nix
     ./modules/shell.nix
+    ./modules/git.nix
   ];
 
   # Let Home Manager install and manage itself

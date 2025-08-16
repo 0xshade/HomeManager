@@ -4,6 +4,41 @@ A minimal, terminal-focused, Nix Home Manager setup.
 
 <img width="1488" height="931" alt="image" src="https://github.com/user-attachments/assets/72e3f869-a1a9-45e8-ae1a-dfb35289d8ff" />
 
+## Quick Setup
+
+### Install Nix
+```sh
+sh <(curl --proto '=https' --tlsv1.2 -L https://nixos.org/nix/install) --no-daemon
+. /home/shade/.nix-profile/etc/profile.d/nix.sh
+```
+
+### Add Home Manager channel
+```sh
+nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
+nix-channel --update
+```
+
+### Install Home Manager
+```sh
+nix-shell '<home-manager>' -A install
+. "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh"
+```
+
+### Deploy this configuration
+```sh
+git clone https://github.com/yourusername/HomeManager.git
+cd HomeManager
+
+# Update username and home directory in home.nix first!
+# Edit lines 11-12 to match your system:
+#   home.username = "yourusername";
+#   home.homeDirectory = "/home/yourusername";
+
+# Update Git username and email in ./modules/git.nix
+
+home-manager switch --flake . --extra-experimental-features nix-command
+```
+
 ## Customization
 
 1. **Packages**: Add/remove packages in `home.nix`. Package configurations are in `modules/package.nix`.
