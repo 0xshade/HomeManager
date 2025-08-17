@@ -26,7 +26,7 @@ nix-shell '<home-manager>' -A install
 
 ### Deploy this configuration
 ```sh
-git clone https://github.com/yourusername/HomeManager.git
+git clone https://github.com/0xshade/HomeManager.git
 cd HomeManager
 
 # Update username and home directory in home.nix first!
@@ -36,7 +36,7 @@ cd HomeManager
 
 # Update Git username and email in ./modules/git.nix
 
-home-manager switch --flake . --extra-experimental-features nix-command
+home-manager --extra-experimental-features "nix-command flakes" switch -b backup --flake . 
 ```
 
 ## Customization
