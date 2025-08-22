@@ -22,8 +22,10 @@
     zoxide
     eza
     # Fonts
-    (pkgs.nerd-fonts.mononoki)
+     (nerd-fonts.mononoki)
   ];
+
+  fonts.fontconfig.enable = true;
 
   nix = {
     package = pkgs.nix;
