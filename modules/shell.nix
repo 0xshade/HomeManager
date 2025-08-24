@@ -42,9 +42,15 @@
       fi      
       # Check if .npm-global exists, if so add it as part of the PATH.
       [ -d "$HOME/.npm-global/bin" ] && PATH="$HOME/.npm-global/bin:$PATH"
+      # Check if .npm-global exists, if so add it as part of the PATH.
+      [ -d "$HOME/.npm-global/bin" ] && PATH="$HOME/.npm-global/bin:$PATH"
       # Check if .nix-profile exists, if so add it as part of the PATH.
       [ -d "$HOME/.nix-profile/bin" ] && PATH="$HOME/.nix-profile/bin:$PATH"
       export PATH
+
+      ## Sources
+      # Does nvm exist? then source it 
+      [ -f "$HOME/.nvm/nvm.sh" ] && source "$HOME/.nvm/nvm.sh"
 
 
     '';
