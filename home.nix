@@ -1,10 +1,6 @@
-{ config, pkgs, lib, nixgl, ... }:
+{ config, pkgs, lib, ... }:
 
 {
-  nixGL.packages = nixgl;
-  nixGL.defaultWrapper = "mesa";
-  nixGL.offloadWrapper = "nvidiaPrime";
-  nixGL.installScripts = [ "mesa" "nvidiaPrime" ];
 
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
@@ -19,6 +15,7 @@
   home.packages = with pkgs; [
     # Your essential tools
     # (config.lib.nixGL.wrap pkgs.alacritty)
+	pnpm
     zoxide
     eza
     # Fonts

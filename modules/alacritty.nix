@@ -1,9 +1,15 @@
 { config, pkgs, ... }:
 
+let
+  # Wrap alacritty with nixGL for OpenGL support on non-NixOS
+  wrappedAlacritty = pkgs.writeShellScriptBin "alacritty" ''
+    exec ${pkgs.nixgl.auto.nixGLDefault}/bin/nixGL ${pkgs.alacritty}/bin/alacritty "$@"
+  '';
+in
 {
-  programs.alacritty = { 
+  programs.alacritty = {
     enable = true;
-    package = config.lib.nixGL.wrap pkgs.alacritty;
+    package = wrappedAlacritty;
     settings = {
       # Shell integration - automatically start Zellij
       terminal.shell = {

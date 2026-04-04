@@ -16,15 +16,14 @@
       pkgs = import nixpkgs {
         inherit system;
         config.allowUnfree = true;
+        overlays = [ nixgl.overlay ];
       };
     in
     {
       homeConfigurations.shade = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
         
-        extraSpecialArgs = {
-          nixgl = nixgl.packages.${system};
-        };
+        extraSpecialArgs = { };
         
         modules = [
           ./home.nix

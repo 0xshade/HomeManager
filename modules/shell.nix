@@ -47,8 +47,15 @@
       # Check if .nix-profile exists, if so add it as part of the PATH.
       [ -d "$HOME/.nix-profile/bin" ] && PATH="$HOME/.nix-profile/bin:$PATH"
       export PATH
-
+      # Check if go exists, if so add it as part of the PATH.
+      [ -d "$HOME/go/bin" ] && PATH="$HOME/go/bin:$PATH"
+      export PATH
+      # Check if rust cargo folder exists, if so add it as part of the PATH.
+      [ -d "$HOME/.cargo/bin" ] && PATH="$HOME/.cargo/bin:$PATH" && source "$HOME/.cargo/env"
+      export PATH
+      
       ## Sources
+      
       # Does nvm exist? then source it 
       [ -f "$HOME/.nvm/nvm.sh" ] && source "$HOME/.nvm/nvm.sh"
 
