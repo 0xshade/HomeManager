@@ -42,10 +42,10 @@
       fi      
       # Check if .npm-global exists, if so add it as part of the PATH.
       [ -d "$HOME/.npm-global/bin" ] && PATH="$HOME/.npm-global/bin:$PATH"
-      # Check if .npm-global exists, if so add it as part of the PATH.
-      [ -d "$HOME/.npm-global/bin" ] && PATH="$HOME/.npm-global/bin:$PATH"
       # Check if .nix-profile exists, if so add it as part of the PATH.
       [ -d "$HOME/.nix-profile/bin" ] && PATH="$HOME/.nix-profile/bin:$PATH"
+      # Check if go local directory exists, if so add it as part of the PATH.
+      [ -d "$HOME/go/bin" ] && PATH="$HOME/go/bin:$PATH"
       export PATH
       # Check if go exists, if so add it as part of the PATH.
       [ -d "$HOME/go/bin" ] && PATH="$HOME/go/bin:$PATH"

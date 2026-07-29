@@ -6,7 +6,7 @@
   # paths it should manage.
   home.username = "shade";
   home.homeDirectory = "/home/shade";
-
+	targets.genericLinux.enable = true;
   # This value determines the Home Manager release which your
   # configuration is compatible with. Don't change unless you know what you're doing.
   home.stateVersion = "24.05"; # Please read the comment before changing.
@@ -15,7 +15,8 @@
   home.packages = with pkgs; [
     # Your essential tools
     # (config.lib.nixGL.wrap pkgs.alacritty)
-	pnpm
+	  pnpm
+    bun
     zoxide
     eza
     # Fonts
