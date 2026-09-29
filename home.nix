@@ -36,6 +36,7 @@
     ./modules/zellij.nix
     ./modules/shell.nix
     ./modules/git.nix
+    ./modules/rust.nix
   ];
 
   # Let Home Manager install and manage itself

@@ -39,6 +39,11 @@
       # Append system DRI dir so libva can find nvidia_drv_video.so
       # (nixGL's LIBVA_DRIVERS_PATH only covers mesa + intel-media-driver)
       export LIBVA_DRIVERS_PATH="$LIBVA_DRIVERS_PATH:/usr/lib64/dri"
+      # is CUDA installed? if so, add it to the PATH
+      if [ -d "/usr/local/cuda-13.4/bin" ]; then
+          export PATH="$PATH:/usr/local/cuda-13.4/bin"
+          export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/usr/local/cuda-13.4/lib64"
+      fi
 
       # User specific environment
       if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]; then
@@ -57,6 +62,7 @@
       # Check if rust cargo folder exists, if so add it as part of the PATH.
       [ -d "$HOME/.cargo/bin" ] && PATH="$HOME/.cargo/bin:$PATH" && source "$HOME/.cargo/env"
       export PATH
+
 
       ## Sources
 
